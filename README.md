@@ -67,9 +67,7 @@ flowchart TD
 ### 🔷 Model 0 – Daily Window (Baseline)
 
 **Formula:**  
-\[
-\text{Price} = 10 + \frac{\text{Max Occupancy} - \text{Min Occupancy}}{\text{Capacity}}
-\]
+Price = 10 + (Max Occupancy - Min Occupancy) / Capacity
 
 - Captures daily demand volatility
 - Smooth but not responsive to real-time changes
@@ -79,14 +77,8 @@ flowchart TD
 ### 🟠 Model 1 – Row-wise (Occupancy + Queue)
 
 **Formula:**  
-Price=10+0.6⋅( 
-Capacity
-Occupancy
-​
- )+0.4⋅QueueLength 
-1.5
 \[
-\text{Price} = 10 + 0.6 \cdot \left(\frac{\text{Occupancy}}{\text{Capacity}}\right) + 0.4 \cdot \text{QueueLength}^{1.5}
+Price = 10 + 0.6 * (Occupancy / Capacity) + 0.4 * QueueLength^1.5
 \]  
 (Clipped between ₹5 and ₹20)
 
