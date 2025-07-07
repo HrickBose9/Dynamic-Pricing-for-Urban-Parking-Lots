@@ -77,9 +77,8 @@ Price = 10 + (Max Occupancy - Min Occupancy) / Capacity
 ### 🟠 Model 1 – Row-wise (Occupancy + Queue)
 
 **Formula:**  
-\[
 Price = 10 + 0.6 * (Occupancy / Capacity) + 0.4 * QueueLength^1.5
-\]  
+
 (Clipped between ₹5 and ₹20)
 
 - Real-time reactive model
@@ -90,12 +89,11 @@ Price = 10 + 0.6 * (Occupancy / Capacity) + 0.4 * QueueLength^1.5
 ### 🟢 Model 2 – Demand-Based Sigmoid Model
 
 **Formula (Simplified):**  
-\[
-x = w_1\cdot Occ + w_2\cdot Queue + w_3\cdot Traffic + w_4\cdot (Event\times Traffic) + w_5\cdot VehicleRisk
-\]  
-\[
-Demand = \frac{1}{1 + e^{-k(x - \mu)}},\quad Price = 10 \cdot (1 + Demand)
-\]
+x = w1*OccupancyRatio + w2*Queue + w3*Traffic +
+    w4*(IsSpecialDay * Traffic) + w5*VehicleRisk
+
+Demand = 1 / (1 + exp(-k * (x - μ)))
+Price = 10 * (1 + Demand)
 
 - Most dynamic and adaptive model
 - Smooth sigmoid response to multiple features
