@@ -79,6 +79,12 @@ flowchart TD
 ### 🟠 Model 1 – Row-wise (Occupancy + Queue)
 
 **Formula:**  
+Price=10+0.6⋅( 
+Capacity
+Occupancy
+​
+ )+0.4⋅QueueLength 
+1.5
 \[
 \text{Price} = 10 + 0.6 \cdot \left(\frac{\text{Occupancy}}{\text{Capacity}}\right) + 0.4 \cdot \text{QueueLength}^{1.5}
 \]  
